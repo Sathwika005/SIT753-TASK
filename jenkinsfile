@@ -1,1 +1,55 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('1. Build') {
+      steps {
+        echo 'Stage 1: Build - Compiles/packages the application.'
+        echo 'Example tool: Maven (or Gradle).'
+      }
+    }
+
+    stage('2. Unit & Integration Tests') {
+      steps {
+        echo 'Stage 2: Unit & Integration Tests - Runs automated unit and integration tests.'
+        echo 'Example tool: JUnit + Mockito (or Jest/pytest depending on stack).'
+      }
+    }
+
+    stage('3. Code Analysis') {
+      steps {
+        echo 'Stage 3: Code Analysis - Performs static code analysis to enforce coding standards and find issues.'
+        echo 'Example tool: SonarQube / ESLint / PMD / Checkstyle.'
+      }
+    }
+
+    stage('4. Security Scan') {
+      steps {
+        echo 'Stage 4: Security Scan - Scans dependencies and code for known vulnerabilities.'
+        echo 'Example tool: Snyk / OWASP Dependency-Check / Trivy.'
+      }
+    }
+
+    stage('5. Deploy to Staging') {
+      steps {
+        echo 'Stage 5: Deploy to Staging - Deploys the build to a staging environment for further validation.'
+        echo 'Example tool/platform: AWS EC2 (or Docker/Kubernetes staging).'
+      }
+    }
+
+    stage('6. Integration Tests on Staging') {
+      steps {
+        echo 'Stage 6: Integration Tests on Staging - Runs integration/end-to-end tests against the staging deployment.'
+        echo 'Example tool: Postman/Newman / Selenium / Cypress.'
+      }
+    }
+
+    stage('7. Deploy to Production') {
+      steps {
+        echo 'Stage 7: Deploy to Production - Deploys the validated build to production.'
+        echo 'Example tool/platform: AWS EC2 (or your production deployment platform).'
+      }
+    }
+  }
+}
 
